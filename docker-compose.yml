@@ -1,0 +1,20 @@
+version: '3'
+services:
+  fluentd:
+    image: ci-tool-stack/fluentd:${VERSION:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile.${VERSION:-latest}
+      args:
+        - http_proxy=$http_proxy
+        - https_proxy=$https_proxy
+        - no_proxy=$no_proxy
+#    environment:
+#      - ENV FLUENTD_OPT=""
+#      - ENV FLUENTD_CONF="fluent.conf"
+#     volumes:
+#      - ./fluentd.conf:/fluentd/etc/fluent.conf
+#      - /data:/fluentd/log
+    ports:
+      - 24224:24224
+      - 5140:5140

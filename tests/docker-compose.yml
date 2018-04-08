@@ -1,0 +1,13 @@
+version: '3'
+services:
+  fluentd:
+    image: ci-tool-stack/fluentd:${VERSION:-latest}
+#    environment:
+#      - ENV FLUENTD_OPT=""
+#      - ENV FLUENTD_CONF="fluent.conf"
+    volumes:
+      - ./data:/fluentd/log
+#      - ./fluentd.conf:/fluentd/etc/fluent.conf
+    ports:
+      - 24224:24224
+      - 5140:5140
