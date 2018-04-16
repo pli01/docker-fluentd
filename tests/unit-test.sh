@@ -18,7 +18,7 @@ else
   ret=1
 fi
 echo "Check fluentd installed"
-docker-compose -p ${namespace} run --name "test-fluentd" --rm $fluentd ls -l /fluentd/
+docker-compose -p ${namespace} run --name "test-fluentd" --rm $fluentd find /fluentd/
 test_result=$?
 if [ "$test_result" -eq 0 ] ; then
   echo "[PASSED] fluentd installed"

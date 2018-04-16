@@ -5,8 +5,8 @@ services:
 #    environment:
 #      - ENV FLUENTD_OPT=""
 #      - ENV FLUENTD_CONF="fluent.conf"
-    volumes:
-      - ./data:/fluentd/log
+#    volumes:
+#      - ./data:/fluentd/log
 #      - ./fluentd.conf:/fluentd/etc/fluent.conf
     ports:
       - 24224:24224

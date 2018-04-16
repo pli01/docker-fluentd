@@ -1,12 +1,13 @@
 #!/bin/bash
 
-fluentd=${fluentd:-'localhost:9600/_node/logging?pretty'}
+fluentd=${fluentd:-'http://localhost:24224/'}
 prefix=$(dirname $0)
 res=1
 RETRY_NB=240
 RETRY_DELAY_IN_SEC=1
 n=0
 test_result=1
+
 echo "Wait $RETRY_NB second for $fluentd ready ?"
 until [ $n -ge $RETRY_NB ] || [ $test_result -eq 0 ]
 do
