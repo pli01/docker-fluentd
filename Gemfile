@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
 
 gem 'fluent-plugin-elasticsearch', '~>2.8.5'
 gem 'fluent-plugin-rewrite-tag-filter'
