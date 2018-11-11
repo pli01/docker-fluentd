@@ -4,7 +4,7 @@ ARG MIRROR_DEBIAN
 COPY Gemfile /Gemfile
 RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev" && \
     echo "$http_proxy $no_proxy" && set -x && [ -z "$MIRROR_DEBIAN" ] || \
-     sed -i.orig -e "s|http://deb.debian.org/debian|$MIRROR_DEBIAN/debian9|g ; s|http://security.debian.org/debian-security|$MIRROR_DEBIAN/debian9-security|g" /etc/apt/sources.list ; cat /etc/apt/sources.list /etc/apt/sources.list.orig \
+     sed -i.orig -e "s|http://deb.debian.org/debian|$MIRROR_DEBIAN/debian9|g ; s|http://security.debian.org/debian-security|$MIRROR_DEBIAN/debian9-security|g" /etc/apt/sources.list ; cat /etc/apt/sources.list \
  && apt-get update \
  && apt-get install -y --no-install-recommends $buildDeps \
  && ( set -ex ; echo 'gem: --no-document' >> /etc/gemrc && \
